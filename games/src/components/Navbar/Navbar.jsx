@@ -10,7 +10,7 @@ const Navbar = () => {
           <li className="navbar-item">Snake Game</li>
           <li className="navbar-item">Tetris</li>
           <li className="navbar-item">Pac-Man</li>
-          <li className="navbar-item">Space Invaders</li>
+          <li className="navbar-item">old game</li>
         </ul>
       </div>
     </nav>
