@@ -1,0 +1,52 @@
+/* Navbar.css */
+.navbar {
+    background-color: #0e0e0e;
+    color: #fff;
+    padding: 10px 0;  /* Üst ve alt padding'i biraz daraltalım */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Navbar'ın en üstte olmasını sağlıyoruz */
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00ff00;
+  }
+  
+  .navbar-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar-item {
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-item:hover {
+    color: #00ff00;
+  }
+  
+  /* Sayfanın içeriği, navbar'ın altına gelmesi için */
+  .page-content {
+    margin-top: 60px; /* Navbar'ın yüksekliğini hesaba katmak için */
+  }
+  

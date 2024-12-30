@@ -1,0 +1,45 @@
+/* App.css */
+
+.main-content {
+  display: flex;
+  justify-content: flex-start; /* Butonları sola hizalar */
+  align-items: center;
+  min-height: 80vh;
+  background-color: #121212;
+  padding-left: 50px; /* Sol kenardan biraz boşluk bırakır */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Butonları dikey olarak hizalar */
+  gap: 20px; /* Butonlar arasına mesafe ekliyoruz */
+}
+
+.game-link {
+  text-decoration: none; /* Linklerin altını kaldırır */
+}
+
+.game-button {
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #00c853; /* Gaming temalı renk */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.game-button:hover {
+  background-color: #00e676; /* Hover efekti */
+  transform: translateY(-5px); /* Hoverda biraz yukarı kayar */
+}
+
+.game-button:active {
+  transform: translateY(2px); /* Tıklama anında biraz aşağı kayar */
+}
+
+.game-button:focus {
+  outline: none; /* Butonun odaklanma çerçevesini kaldırır */
+}
