@@ -3,6 +3,7 @@ import SnakeGames from './games/snakegames/SnakeGames.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import './App.css'; // Stil dosyasını dahil ediyoruz
+import { Pacman } from './games/pac-man/Pacman.jsx';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<h1>Welcome to the Gaming Page!</h1>} />
-        <Route path="/snake-game" element={<SnakeGames />} />
+        {/* <Route path="/snake-game" element={<SnakeGames />} /> */}
+        <Route path='/pacman' element={<Pacman />} />
       </Routes>
 
       <Footer />
