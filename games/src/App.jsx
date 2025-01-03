@@ -5,35 +5,35 @@ import Footer from './components/Footer/Footer.jsx';
 import './App.css'; // Stil dosyasını dahil ediyoruz
 import { Pacman } from './games/pac-man/Pacman.jsx';
 import Tetris from './games/tetris/Tetris.jsx';
+import Oldgame from './games/oldgame/Oldgame.jsx';
 
 function App() {
   return (
     <Router>
       <Navbar />
       
-      <div className="main-content">
-        <div className="button-container">
-          <Link to="/" className="game-link">
+      
+          <Link to="/" >
             <button className="game-button">Home</button>
           </Link>
-          <Link to="/snake-game" className="game-link">
+          <Link to="/snake-game" >
             <button className="game-button">Snake Game</button>
           </Link>
           {/* Burada başka oyunlar da eklenebilir */}
-          <Link to="/" className="game-link">
+          <Link to="/" >
             <button className="game-button">Game 3</button>
           </Link>
-          <Link to="/" className="game-link">
+          <Link to="/" >
             <button className="game-button">Game 4</button>
           </Link>
-        </div>
-      </div>
+    
 
       <Routes>
         <Route path="/" element={<h1>Welcome to the Gaming Page!</h1>} />
         {/* <Route path="/snake-game" element={<SnakeGames />} /> */}
         {/* <Route path='/pacman' element={<Pacman />} /> */}
-        <Route path='/tetris' element={<Tetris />} />
+        {/* <Route path='/tetris' element={<Tetris />} /> */}
+        <Route path='/oldgame' element={<Oldgame />} /> 
       </Routes>
 
       <Footer />
