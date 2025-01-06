@@ -7,26 +7,28 @@ import { Pacman } from './games/pac-man/Pacman.jsx';
 import Tetris from './games/tetris/Tetris.jsx';
 import Oldgame from './games/oldgame/Oldgame.jsx';
 import Home from './Home.jsx';
+import Login from './components/auth/login/Login.jsx';
+import Register from './components/auth/register/Register.jsx';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Home />
-      
+       <Routes>
+       <Route path='/register' element={<Register /> } />
       
        
     
 
-      <Routes>
-        {/* <Route path="/" element={<h1>Welcome to the Gaming Page!</h1>} /> */}
+     
+       <Route path="/" element={<Home />} /> 
         {/* <Route path="/snake-game" element={<SnakeGames />} /> */}
         {/* <Route path='/pacman' element={<Pacman />} /> */}
         {/* <Route path='/tetris' element={<Tetris />} /> */}
         <Route path='/oldgame' element={<Oldgame />} /> 
+        <Route path='/login' element={<Login />} />
       </Routes>
 
-      <Footer />
+     
     </Router>
   );
 }

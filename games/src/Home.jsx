@@ -1,10 +1,31 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
+ export const Home = () => {
 
-export const Home = () => {
+
+  const navigate = useNavigate();
+
+
+const goeyup = () => {
+  navigate('/login');
+}
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+<>
+<Navbar />
+<div style={{ textAlign: "center", marginTop: "100px" }}>
       <h1>Welcome to Gaming World</h1>
+     <div className="start">
+
+     <button onClick={goeyup}>
+        Start UP
+      </button>
+
+     </div>
+     
       <Player
         autoplay
         loop
@@ -12,6 +33,10 @@ export const Home = () => {
         style={{ height: "400px", width: "400px" }}
       />
     </div>
+    <Footer />
+    </>
+
+   
   );
 };
 

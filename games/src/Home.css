@@ -5,6 +5,18 @@ body, html {
     overflow: hidden;
   }
   
+
+  .start{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100px;
+    height: 150px;
+    color: white;
+    z-index: 2;
+  }
   .home {
     position: relative;
     width: 100%;

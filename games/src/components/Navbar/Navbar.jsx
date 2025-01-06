@@ -11,8 +11,11 @@ const Navbar = () => {
           <li className="navbar-item">Tetris</li>
           <li className="navbar-item">Pac-Man</li>
           <li className="navbar-item">old game</li>
-        </ul>
-      </div>
+          <li className="navbar-item">Sign In</li>
+          </ul>
+        
+          
+              </div>
     </nav>
   );
 };
