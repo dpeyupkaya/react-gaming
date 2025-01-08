@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Oldgame.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const Oldgame = () => {
   const [targetNumber, setTargetNumber] = useState(Math.floor(Math.random() * 100) + 1);
@@ -34,7 +36,8 @@ const Oldgame = () => {
   };
 
   return (
-    <div className="oldgame">
+<> <Navbar />
+<div className="oldgame">
       <h1>Sayı Tahmin Oyunu</h1>
       <p>{message}</p>
       <input
@@ -46,6 +49,8 @@ const Oldgame = () => {
       <button onClick={handleGuess}>Tahmin Et</button>
       <button onClick={resetGame}>Yeni Oyun</button>
     </div>
+<Footer />
+</>
   );
 };
 

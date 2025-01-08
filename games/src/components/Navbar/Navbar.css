@@ -1,52 +1,85 @@
-/* Navbar.css */
+/* Navbar ana container */
 .navbar {
-    background-color: #0e0e0e;
-    color: #fff;
-    padding: 10px 0;  /* Üst ve alt padding'i biraz daraltalım */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Navbar'ın en üstte olmasını sağlıyoruz */
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #00ff00;
-  }
-  
+  background-color: #000000; /* Koyu arka plan rengi */
+  color: #0000ff; /* Beyaz yazı rengi */
+  padding: 10px 20px; /* Üst-alt ve sağ-sol padding */
+  display: flex;
+  justify-content: space-between;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  position: sticky;
+  margin-top: 0;
+  z-index: 1000; /* Diğer içeriklerin üzerinde kalmasını sağlar */
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo stili */
+.navbar-logo button {
+  background: none;
+  border: none;
+  color: #ff4757; /* Canlı kırmızı renk */
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo button:hover {
+  color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
+}
+
+/* Menü listesi */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* Menü öğeleri */
+.navbar-item button {
+  background: none;
+  border: none;
+  color: #ffffff; /* Beyaz yazı rengi */
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-item button:hover {
+  background-color: #ff4757;
+  color: #3cff00; 
+}
+
+
+.navbar-item button.active {
+  background-color: #ff4757;
+  color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
   .navbar-menu {
-    list-style-type: none;
-    display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
   }
-  
-  .navbar-item {
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+
+  .navbar-item button {
+    width: 100%;
+    text-align: right;
   }
-  
-  .navbar-item:hover {
-    color: #00ff00;
-  }
-  
-  /* Sayfanın içeriği, navbar'ın altına gelmesi için */
-  .page-content {
-    margin-top: 60px; /* Navbar'ın yüksekliğini hesaba katmak için */
-  }
-  
+}

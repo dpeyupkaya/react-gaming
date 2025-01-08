@@ -47,3 +47,4 @@ export const Pacman = () => {
     </div>
   );
 };
+export default Pacman;

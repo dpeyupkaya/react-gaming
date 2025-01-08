@@ -15,7 +15,7 @@ const goeyup = () => {
 
   return (
 <>
-<Navbar />
+
 <div style={{ textAlign: "center", marginTop: "100px" }}>
       <h1>Welcome to Gaming World</h1>
      <div className="start">
@@ -33,7 +33,7 @@ const goeyup = () => {
         style={{ height: "400px", width: "400px" }}
       />
     </div>
-    <Footer />
+  
     </>
 
    
