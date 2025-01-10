@@ -1,0 +1,72 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Koyu arka plan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #1e1e1e; /* Koyu tema */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Işık efekti */
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    color: #fff; /* Beyaz yazı rengi */
+    border: 2px solid #ff4757; /* Kırmızı çerçeve */
+  }
+  
+  .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4757; /* Kırmızı başlık */
+    margin-bottom: 10px;
+  }
+  
+  .modal-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-games {
+    margin-bottom: 20px;
+  }
+  
+  .modal-games p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .modal-games ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .modal-games li {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #ffa502; /* Turuncu renk */
+  }
+  
+  .modal-close-button {
+    background-color: #ff4757; /* Kırmızı buton */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-close-button:hover {
+    background-color: #ff6b81; /* Buton hover rengi */
+  }

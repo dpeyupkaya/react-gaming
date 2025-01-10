@@ -8,9 +8,9 @@ import { MainLayout } from './layout/MainLayout.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter> {/* BrowserRouter ile sarmalayın */}
-      <MainLayout>
+    
         <App />
-      </MainLayout>
+      
     </BrowserRouter>
   </StrictMode>
 );

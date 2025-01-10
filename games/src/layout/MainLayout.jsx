@@ -7,7 +7,7 @@ export const MainLayout = ({ children }) => {
   return (
     <div>
       <Navbar /> 
-      <main>{children}</main> 
+      {children}
       <Footer /> 
     </div>
   );

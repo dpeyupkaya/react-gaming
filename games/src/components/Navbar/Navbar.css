@@ -1,14 +1,16 @@
 /* Navbar ana container */
 .navbar {
-  background-color: #000000; /* Koyu arka plan rengi */
-  color: #0000ff; /* Beyaz yazı rengi */
+  background-color: #1a1a1a; /* Koyu arka plan rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
   padding: 10px 20px; /* Üst-alt ve sağ-sol padding */
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-  position: sticky;
-  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000; /* Diğer içeriklerin üzerinde kalmasını sağlar */
 }
 
@@ -41,10 +43,9 @@
 .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 20px; /* Öğeler arası boşluk */
   margin: 0;
   padding: 0;
-
 }
 
 /* Menü öğeleri */
@@ -60,17 +61,47 @@
 }
 
 .navbar-item button:hover {
-  background-color: #ff4757;
-  color: #3cff00; 
+  background-color: #ff4757; /* Fare üzerine gelindiğinde arka plan rengi */
+  color: #ffffff; /* Fare üzerine gelindiğinde yazı rengi */
 }
 
-
-.navbar-item button.active {
-  background-color: #ff4757;
-  color: #ffffff;
+/* Saat stili */
+.navbar-clock {
+  font-size: 18px;
+  font-weight: bold;
+  color: #11f900; /* Beyaz yazı rengi */
+  background: linear-gradient(45deg, #8a8a8e, #454544, #262626); /* Gradient arka plan */
+  padding: 8px 16px;
+  border-radius: 25px; /* Yuvarlak köşeler */
+  box-shadow: 0 4px 6px rgba(18, 2, 2, 0.3); /* Gölge efekti */
+  border: 2px solid rgba(0, 0, 0, 0.312); /* İnce beyaz çerçeve */
+  animation: glow 1s infinite alternate; /* Parlaklık animasyonu */
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.7), 0 0 10px rgba(255, 0, 234, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.9), 0 0 30px rgba(137, 0, 0, 0.9);
+  }
+}
 
+.navbar-clock span {
+  display: inline-block;
+  animation: bounce 1.5s infinite alternate; /* Zıplama animasyonu */
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive tasarım için medya sorguları */
 @media (max-width: 768px) {
   .navbar-menu {
     flex-direction: column;
@@ -81,5 +112,9 @@
   .navbar-item button {
     width: 100%;
     text-align: right;
+  }
+
+  .navbar-clock {
+    display: none; /* Mobilde saati gizle */
   }
 }
