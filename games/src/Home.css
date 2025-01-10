@@ -1,29 +1,25 @@
-/* Genel stil ayarları */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+/* Sayfa container */
+.page-container {
+  width: 100%;
+  min-height: 100vh; /* Tam ekran yükseklik */
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Scroll yapılabilir */
 }
 
-/* Ana sayfa konteyneri */
+/* Home bölümü */
 .home {
-  position: relative;
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(180deg, #280000, #004e92);
-  overflow: hidden;
-  text-align: center;
+  min-height: 100vh; /* Tam ekran yükseklik */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a, #000000); /* Koyu gradient arka plan */
   color: white;
 }
 
-/* Başlık stili */
-.home h1 {
-  font-size: 3rem;
-  margin-top: 20px;
-}
-
-/* Buton konteyneri */
+/* Start butonu konteyneri */
 .start-container {
   position: absolute;
   top: 50%;
@@ -32,19 +28,58 @@ body, html {
   z-index: 2;
 }
 
-/* Buton stili */
+/* Start butonu stili */
 .start-button {
-  width: 120px; /* Buton genişliği */
-  height: 40px; /* Buton yüksekliği */
-  background-color: #ff4757; /* Buton arka plan rengi */
+  padding: 15px 30px;
+  font-size: 1.5rem;
   color: white;
+  background-color: #ff4757; /* Kırmızı arka plan */
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  margin-top: 500px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  animation: pulse 1.5s infinite, float 3s infinite ease-in-out; /* Yanıp sönme ve hareket animasyonu */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .start-button:hover {
   background-color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
+  transform: scale(1.1); /* Hafif büyütme efekti */
+}
+
+/* Yanıp sönme animasyonu */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 71, 87, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+  }
+}
+
+/* Hareket animasyonu */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Contact bölümü */
+.contact-section {
+  width: 100%;
+  min-height: 100vh; /* Tam ekran yükseklik */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a, #000000); /* Koyu gradient arka plan */
+  color: white;
 }

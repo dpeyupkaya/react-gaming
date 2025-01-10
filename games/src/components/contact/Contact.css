@@ -1,0 +1,151 @@
+/* Ana container */
+.contact-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Tam ekran yükseklik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a, #000000); /* Koyu gradient arka plan */
+    color: white;
+    overflow: hidden; /* Taşan içeriği gizle */
+  }
+  
+  /* Arka plan animasyonu (renk geçişleri) */
+  .contact-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      #ff4757,
+      #ff6b81,
+      #ffa502,
+      #ff4757,
+      #ff6b81,
+      #ffa502
+    );
+    background-size: 400% 400%; /* Gradient boyutunu büyüt */
+    animation: gradientAnimation 10s ease infinite; /* Gradient animasyonu */
+    z-index: 1; /* Arka plana yerleştir */
+    opacity: 0.5; /* Opaklık */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* İletişim içeriği */
+  .contact-content {
+    position: relative;
+    z-index: 2; /* İçeriği ön plana getir */
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Yarı saydam koyu arka plan */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Hafif parlaklık efekti */
+  }
+  
+  .contact-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: glow 2s infinite alternate; /* Başlık parlaklık animasyonu */
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
+    }
+    100% {
+      text-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
+    }
+  }
+  
+  .contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* İletişim bilgileri */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .info-icon {
+    font-size: 1.5rem;
+    color: #ff4757; /* Kırmızı renk */
+  }
+  
+  /* İletişim formu */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff4757; /* Kırmızı çerçeve */
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #ff6b81; /* Odaklandığında çerçeve rengi */
+    animation: inputGlow 1.5s infinite alternate; /* Input parlaklık animasyonu */
+  }
+  
+  @keyframes inputGlow {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
+    }
+  }
+  
+  /* Gönder butonu */
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #ff4757; /* Kırmızı arka plan */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
+    transform: scale(1.05); /* Hafif büyütme efekti */
+  }

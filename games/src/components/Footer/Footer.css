@@ -1,59 +1,88 @@
-/* Footer.css */
+/* Footer ana container */
 .footer {
-    background-color: #0e0e0e00;
-    color: white;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 500px;
-    width: 30%;
-    margin: 0;
- 
+  position: fixed; /* Sayfanın en altında sabitler */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1a1a1a; /* Koyu arka plan rengi */
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Üstte hafif gölge efekti */
+  z-index: 1000; /* Diğer içeriklerin üzerinde kalmasını sağlar */
+}
+
+/* Footer container */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer metin stili */
+.footer-text {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Sosyal medya ikonları container */
+.footer-social {
+  display: flex;
+  gap: 15px; /* İkonlar arası boşluk */
+}
+
+/* Sosyal medya ikonları */
+.footer-social a {
+  color: #ffffff;
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-5px); /* Fare üzerine gelindiğinde yukarı hareket */
+}
+
+/* Twitter ikonu */
+.twitter-link:hover {
+  color: #1da1f2; /* Twitter mavisi */
+}
+
+/* Facebook ikonu */
+.facebook-link:hover {
+  color: #1877f2; /* Facebook mavisi */
+}
+
+/* Instagram ikonu */
+.instagram-link:hover {
+  color: #e4405f; /* Instagram pembe-kırmızısı */
+}
+
+/* Animasyonlar */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
   }
-  
+  100% {
+    text-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
+  }
+}
+
+/* Footer metni için parlaklık efekti */
+.footer-text {
+  animation: glow 2s infinite alternate;
+}
+
+/* Responsive tasarım için medya sorguları */
+@media (max-width: 768px) {
   .footer-container {
-    display: flex;
-  
-    align-items: center;
-    padding: 1px;
-   
-  }
-  
-  .footer-text {
-    font-size: 15px;
-    font-weight: 500;
-  }
-  
-  .footer-social {
-    display: flex;
-    padding: auto;
-    gap: 2px;
-    margin: 10px 0;
-    width: 100px;
-    position: relative;
-    font-size: 30px;
-  }
- .twitter-link {
-    color: #1da1f2;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    width: 100px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
   }
 
-  .facebook-link {
-    color: #1877f2;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    width: 100px;
+  .footer-social {
+    justify-content: center;
   }
-  .instagram-link {
-    color: #c32aa3;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    width: 100px;
-    right: 30px;
-  }
-  
-  
-  
+}

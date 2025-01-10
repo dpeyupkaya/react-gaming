@@ -1,95 +1,172 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2e2e3f);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-  }
-  
-  .login-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .login-box h1 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 2rem;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    transition: background 0.3s ease;
-  }
-  
-  .input-group input:focus {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #ff6f61, #ff4a3d);
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 111, 97, 0.8);
-  }
-  
+/* Ana container */
+.login-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a, #000000); /* Koyu gradient arka plan */
+}
 
+/* Arka plan animasyonu */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5; /* Animasyonun opaklığı */
+}
 
+/* Login kutusu */
+.login-box {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8); /* Yarı saydam koyu arka plan */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Hafif parlaklık efekti */
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 1.5s ease-in-out; /* Giriş animasyonu */
+}
 
-  .login-box::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #ff6f61, #ff4a3d, #ff6f61, #ff4a3d);
-    z-index: -1;
-    animation: rotatePrisma 6s linear infinite;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  @keyframes rotatePrisma {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.login-box h1 {
+  color: #ff4757; /* Canlı kırmızı renk */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: glow 2s infinite alternate; /* Başlık parlaklık animasyonu */
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
+  }
+}
+
+/* Input grupları */
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ff4757; /* Kırmızı çerçeve */
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #ff6b81; /* Odaklandığında çerçeve rengi */
+  animation: inputGlow 1.5s infinite alternate; /* Input parlaklık animasyonu */
+}
+
+@keyframes inputGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
+  }
+}
+
+/* Butonlar */
+.login-button,
+.secondary-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button {
+  background-color: #ff4757; /* Kırmızı arka plan */
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #a1ff6b; /* Fare üzerine gelindiğinde renk değişimi */
+  transform: scale(1.05); /* Hafif büyütme efekti */
+}
+
+.secondary-button {
+  background-color: transparent;
+  border: 2px solid #00e60b; /* Kırmızı çerçeve */
+  color: #37ff00;
+}
+
+.secondary-button:hover {
+  background-color: #ff4757; /* Fare üzerine gelindiğinde arka plan rengi */
+  color: white;
+  transform: scale(1.05); /* Hafif büyütme efekti */
+}
+
+/* Buton animasyonu */
+.login-button::after,
+.secondary-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.5s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.login-button:hover::after,
+.secondary-button:hover::after {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Arka plan animasyonu */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-container {
+  animation: backgroundAnimation 10s infinite alternate; /* Arka plan animasyonu */
+}

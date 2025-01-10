@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Welcome, ${username}!`);
   };
+
   const gotoRegister = () => {
-    navigate('/register');
-  }
-  const harun =() => {
-    navigate("/")
-  }
+    navigate("/register");
+  };
 
-
+  const goHome = () => {
+    navigate("/");
+  };
 
   return (
     <div className="login-container">
+      {/* Yıldızlar için arka plan */}
+      <div className="stars"></div>
+
+      {/* Login kutusu */}
       <div className="login-box">
         <h1>Gaming Login</h1>
         <form onSubmit={handleSubmit}>
@@ -43,19 +47,18 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit">Login</button>
-
-        
+          <button type="submit" className="login-button">
+            Login
+          </button>
         </form>
-        <button className="login-button" onClick={gotoRegister}>
+
+        {/* Diğer butonlar */}
+        <button className="secondary-button" onClick={gotoRegister}>
           Go to Register
         </button>
-        <button className='home-button' onClick={harun}>
-            Go Home
-
-
+        <button className="secondary-button" onClick={goHome}>
+          Go Home
         </button>
-
       </div>
     </div>
   );

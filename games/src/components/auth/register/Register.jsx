@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Yönlendirme için
-import './Register.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Player } from "@lottiefiles/react-lottie-player";
+import "./Register.css";
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Yönlendirme için
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,11 +15,14 @@ const Register = () => {
   };
 
   const goToLogin = () => {
-    navigate('/login'); 
+    navigate("/login");
   };
 
   return (
     <div className="register-container">
+   
+
+      {/* Register kutusu */}
       <div className="register-box">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
@@ -49,9 +53,13 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" className="register-button">
+            Register
+          </button>
         </form>
-        <button className="login-button" onClick={goToLogin}>
+
+        {/* Diğer butonlar */}
+        <button className="secondary-button" onClick={goToLogin}>
           Go to Login
         </button>
       </div>

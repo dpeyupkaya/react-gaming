@@ -7,12 +7,13 @@ import Home from './Home.jsx';
 import Login from './components/auth/login/Login.jsx';
 import Register from './components/auth/register/Register.jsx';
 import MainLayout from './layout/MainLayout.jsx';
+import { Contact } from './components/contact/Contact.jsx';
 
 function App() {
   const location = useLocation();
 
 
-  const hideNavbarFooterPaths = ["/login", "/register"];
+  const hideNavbarFooterPaths = ["/login", "/register" , "/contact"];
 
  
   const showLayout = !hideNavbarFooterPaths.includes(location.pathname);
@@ -27,12 +28,14 @@ function App() {
             <Route path="/pacman" element={<Pacman />} />
             <Route path="/tetris" element={<Tetris />} />
             <Route path="/oldgame" element={<Oldgame />} />
+           
           </Routes>
         </MainLayout>
       ) : (
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path='/' element={<Contact />} /> 
         </Routes>
       )}
     </>
