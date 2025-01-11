@@ -30,7 +30,7 @@
 /* Sosyal medya ikonları container */
 .footer-social {
   display: flex;
-  gap: 15px; /* İkonlar arası boşluk */
+  gap: 20px; /* İkonlar arası boşluk */
 }
 
 /* Sosyal medya ikonları */
@@ -85,4 +85,9 @@
   .footer-social {
     justify-content: center;
   }
+}
+
+/* Sayfa içeriğinin footer'ın üzerine binmemesi için padding ekleyin */
+body {
+  padding-bottom: 80px; /* Footer yüksekliğine göre ayarlayın */
 }

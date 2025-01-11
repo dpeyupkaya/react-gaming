@@ -1,65 +1,54 @@
-/* Ana container */
 .login-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+ 
+  background-color: #000000; /* Siyah arka plan */
   overflow: hidden;
-  background: linear-gradient(135deg, #1a1a1a, #000000); /* Koyu gradient arka plan */
+  position: relative;
 }
 
-/* Arka plan animasyonu */
-.background-animation {
+/* Yıldızlar için arka plan animasyonu */
+.stars {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  opacity: 0.5; /* Animasyonun opaklığı */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23fff'/%3E%3C/svg%3E")
+    repeat;
+  animation: moveStars 50s linear infinite;
 }
 
-/* Login kutusu */
-.login-box {
-  position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.8); /* Yarı saydam koyu arka plan */
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Hafif parlaklık efekti */
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 1.5s ease-in-out; /* Giriş animasyonu */
-}
-
-@keyframes fadeIn {
+@keyframes moveStars {
   from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
     transform: translateY(0);
   }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
+.login-box {
+  background: linear-gradient(135deg, #1a1a1a6b, #333333); /* Gradient arka plan */
+  padding: 40px;
+ margin-right: 600px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ff4757; /* Kırmızı çerçeve */
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Başlık stili */
 .login-box h1 {
-  color: #ff4757; /* Canlı kırmızı renk */
-  font-size: 2.5rem;
+  font-size: 32px;
+  color: #ff4757; /* Kırmızı renk */
   margin-bottom: 20px;
-  animation: glow 2s infinite alternate; /* Başlık parlaklık animasyonu */
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
-  }
+  font-family: "Press Start 2P", cursive; /* Retro font */
+  text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757; /* Neon efekti */
 }
 
 /* Input grupları */
@@ -69,30 +58,37 @@
 }
 
 .input-group input {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ff4757; /* Kırmızı çerçeve */
+  width: 80% !important; /* Genişliği küçült */
+  padding: 8px !important; /* Padding'i küçült */
+  border: 2px solid #00ffcc; /* Neon yeşil çerçeve */
   border-radius: 5px;
-  background: transparent;
-  color: white;
-  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  font-size: 14px; /* Yazı boyutunu küçült */
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
-  border-color: #ff6b81; /* Odaklandığında çerçeve rengi */
-  animation: inputGlow 1.5s infinite alternate; /* Input parlaklık animasyonu */
+  border-color: #ff4757; /* Odaklandığında kırmızı çerçeve */
 }
 
-@keyframes inputGlow {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 71, 87, 0.7), 0 0 10px rgba(255, 71, 87, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 30px rgba(255, 71, 87, 0.9);
-  }
+/* Şifre göster/gizle butonu */
+.password {
+  position: absolute;
+  left  : 300px ;
+  margin-top: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff; /* Neon yeşil renk */
+  cursor: pointer;
+  font-size: 20px;
+  
 }
+
 
 /* Butonlar */
 .login-button,
@@ -101,72 +97,75 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-bottom: 10px;
-  position: relative;
-  overflow: hidden;
 }
 
 .login-button {
   background-color: #ff4757; /* Kırmızı arka plan */
-  color: white;
+  color: #ffffff;
 }
 
 .login-button:hover {
-  background-color: #a1ff6b; /* Fare üzerine gelindiğinde renk değişimi */
-  transform: scale(1.05); /* Hafif büyütme efekti */
+  background-color: #1aff00; /* Hover rengi */
+  transform: translateY(-3px);
+}
+.secondary-link {
+  color: #00ffcc; /* Neon yeşil renk */
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.secondary-button {
-  background-color: transparent;
-  border: 2px solid #00e60b; /* Kırmızı çerçeve */
-  color: #37ff00;
+.secondary-link:hover {
+  color: #ff4757; /* Hover rengi */
+}
+.register-text{
+  color: #2fff00; /* Neon yeşil renk */
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  gap: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.secondary-button:hover {
-  background-color: #ff4757; /* Fare üzerine gelindiğinde arka plan rengi */
-  color: white;
-  transform: scale(1.05); /* Hafif büyütme efekti */
-}
-
-/* Buton animasyonu */
-.login-button::after,
-.secondary-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%) rotate(45deg);
-  transition: all 0.5s ease;
-  z-index: 0;
-  opacity: 0;
-}
-
-.login-button:hover::after,
-.secondary-button:hover::after {
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-}
-
-/* Arka plan animasyonu */
-@keyframes backgroundAnimation {
-  0% {
-    background-position: 0% 50%;
+/* Animasyonlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.login-container {
-  animation: backgroundAnimation 10s infinite alternate; /* Arka plan animasyonu */
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .login-box {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .login-box h1 {
+    font-size: 24px;
+  }
+
+  .input-group input {
+    font-size: 14px;
+  }
+
+  .login-button,
+  .secondary-button {
+    font-size: 14px;
+  }
 }

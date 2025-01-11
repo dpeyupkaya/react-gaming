@@ -1,12 +1,14 @@
+/* Navbar ana container */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #000000;
+  background-color: #1a1a1a; /* Koyu arka plan */
   color: white;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Gölge efekti */
 }
 
 .navbar.hidden {
@@ -18,9 +20,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-/* Diğer stiller... */
 
 /* Logo stili */
 .navbar-logo button {
@@ -31,10 +33,12 @@
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s ease;
+  font-family: "Press Start 2P", cursive; /* Retro font */
+  text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757; /* Neon efekti */
 }
 
 .navbar-logo button:hover {
-  color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
+  color: #ff6b81; /* Hover rengi */
 }
 
 /* Menü listesi */
@@ -56,36 +60,70 @@
   padding: 8px 12px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
 }
 
 .navbar-item button:hover {
-  background-color: #ff4757; /* Fare üzerine gelindiğinde arka plan rengi */
-  color: #ffffff; /* Fare üzerine gelindiğinde yazı rengi */
+  background-color: #ff4757; /* Hover rengi */
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.7), 0 0 20px rgba(255, 71, 87, 0.5); /* Neon efekti */
 }
 
 /* Saat stili */
 .navbar-clock {
+  display: flex;
+  align-items: center;
   font-size: 18px;
+  gap: 10px;
   font-weight: bold;
-  color: #11f900; /* Yeşil yazı rengi */
-  background: linear-gradient(45deg, #8a8a8e, #454544, #262626); /* Gradient arka plan */
-  padding: 8px 16px;
-  border-radius: 25px; /* Yuvarlak köşeler */
-  box-shadow: 0 4px 6px rgba(18, 2, 2, 0.3); /* Gölge efekti */
-  border: 2px solid rgba(0, 0, 0, 0.312); /* İnce çerçeve */
+  color: #00ffcc; /* Neon yeşil renk */
+  background: linear-gradient(
+    45deg,
+    #1a1a1a,
+    #333333,
+    #1a1a1a
+  ); /* Gradient arka plan */
+  padding: 12px 24px; /* Daha geniş padding */
+  border-radius: 30px; /* Yuvarlak köşeler */
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.7), 0 0 30px rgba(0, 255, 204, 0.5); /* Neon gölge efekti */
+  border: 2px solid #00ffcc; /* Neon yeşil çerçeve */
   cursor: pointer;
-  animation: glow 1s infinite alternate; /* Parlaklık animasyonu */
+  animation: glow 2s infinite alternate, float 3s infinite ease-in-out; /* Animasyonlar */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 107, 107, 0.7), 0 0 10px rgba(255, 0, 234, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.9), 0 0 30px rgba(137, 0, 0, 0.9);
-  }
+.clock-icon {
+  font-size: 24px;
+  color: #00ffcc; /* Neon yeşil renk */
+  transition: color 0.3s ease;
 }
 
+.navbar-clock:hover .clock-icon {
+  color: #ff4757; /* Hover rengi */
+}
+
+/* Saat metni */
+.clock-text {
+  position: absolute;
+  top: 100%; /* İkonun altında göster */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  color: #00ffcc; /* Neon yeşil renk */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.7); /* Neon gölge efekti */
+  white-space: nowrap; /* Metni tek satırda tut */
+  opacity: 0; /* Başlangıçta gizli */
+  transition: opacity 0.3s ease;
+}
+
+.navbar-clock:hover .clock-text {
+  opacity: 1; /* Hover durumunda göster */
+}
 /* Mobil menü ikonu (mobilde gösterilir) */
 .mobile-menu-icon {
   display: none; /* Varsayılan olarak gizli */

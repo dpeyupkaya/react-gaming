@@ -10,13 +10,17 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Navbar'ın görünürlüğü
+  const [isHovered, setIsHovered] = useState(false);  
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 100);
-
-    return () => clearInterval(timer);
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, "0"); // Saat (2 haneli)
+      const minutes = now.getMinutes().toString().padStart(2, "0"); // Dakika (2 haneli)
+      setTime(`${hours}:${minutes}`); // Saat ve dakikayı birleştir
+    }, 1000); // Her saniye güncelle
+  
+    return () => clearInterval(timer); // Temizleme
   }, []);
 
   // Scroll event listener'ı ekle
@@ -85,10 +89,10 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="navbar-clock" onClick={openModal}>
-          <FaClock className="mr-2" />
-          <span>{time}</span>
-        </div>
+        <div className="navbar-clock" onClick={openModal}  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+  <FaClock className="clock-icon" />
+  {isHovered && <span className="clock-text">{time}</span>}
+</div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal} />

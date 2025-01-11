@@ -13,7 +13,7 @@ function App() {
   const location = useLocation();
 
 
-  const hideNavbarFooterPaths = ["/login", "/register" , "/contact"];
+  const hideNavbarFooterPaths = ["/login", "/register"  ];
 
  
   const showLayout = !hideNavbarFooterPaths.includes(location.pathname);
@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path='/' element={<Contact />} /> 
+          
         </Routes>
       )}
     </>

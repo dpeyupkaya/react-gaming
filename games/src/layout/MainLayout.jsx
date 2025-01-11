@@ -8,7 +8,7 @@ export const MainLayout = ({ children }) => {
     <div>
       <Navbar /> 
       {children}
-      <Footer /> 
+     <Footer />
     </div>
   );
 };

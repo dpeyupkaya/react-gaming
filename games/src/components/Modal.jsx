@@ -20,9 +20,6 @@ const Modal = ({ isOpen, onClose }) => {
             <li>🕹️ Retro Games</li>
           </ul>
         </div>
-        <button className="modal-close-button" onClick={onClose}>
-          Kapat
-        </button>
       </div>
     </div>
   );

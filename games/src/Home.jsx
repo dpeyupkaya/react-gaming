@@ -3,6 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useNavigate } from "react-router-dom";
 import { Contact } from "./components/contact/Contact.jsx";
 import "./Home.css";
+import Footer from "./components/Footer/Footer.jsx";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -28,11 +29,6 @@ export const Home = () => {
           src="https://assets5.lottiefiles.com/packages/lf20_1pxqjqps.json"
           style={{ height: "400px", width: "400px" }}
         />
-      </div>
-
-      {/* Contact bölümü */}
-      <div className="contact-section">
-        <Contact />
       </div>
     </div>
   );

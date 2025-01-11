@@ -1,72 +1,95 @@
+/* Modal arka planı */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Koyu arka plan */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Koyu arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal içeriği */
+.modal-content {
+  background: linear-gradient(135deg, #1a1a1a, #333333); /* Gradient arka plan */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ff4757; /* Kırmızı çerçeve */
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Başlık stili */
+.modal-title {
+  font-size: 28px;
+  color: #ff4757; /* Kırmızı renk */
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Press Start 2P", cursive; /* Retro font */
+  text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757; /* Neon efekti */
+}
+
+/* Mesaj stili */
+.modal-message {
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+}
+
+/* Oyunlar listesi stili */
+.modal-games {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.modal-games ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-games li {
+  margin: 10px 0;
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  color: #00ffcc; /* Neon yeşil renk */
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; /* Neon efekti */
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
   .modal-content {
-    background-color: #1e1e1e; /* Koyu tema */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Işık efekti */
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    color: #fff; /* Beyaz yazı rengi */
-    border: 2px solid #ff4757; /* Kırmızı çerçeve */
   }
-  
+
   .modal-title {
     font-size: 24px;
-    font-weight: bold;
-    color: #ff4757; /* Kırmızı başlık */
-    margin-bottom: 10px;
   }
-  
+
   .modal-message {
     font-size: 16px;
-    margin-bottom: 20px;
   }
-  
+
   .modal-games {
-    margin-bottom: 20px;
+    font-size: 14px;
   }
-  
-  .modal-games p {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .modal-games ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .modal-games li {
-    font-size: 16px;
-    margin: 8px 0;
-    color: #ffa502; /* Turuncu renk */
-  }
-  
-  .modal-close-button {
-    background-color: #ff4757; /* Kırmızı buton */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .modal-close-button:hover {
-    background-color: #ff6b81; /* Buton hover rengi */
-  }
+}
