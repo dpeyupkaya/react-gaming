@@ -71,6 +71,22 @@
     text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757;
   }
 }
+.animated-character {
+  width: 50px;
+  height: 50px;
+  background-image: url('path/to/your/character.png'); /* Karakter resminiz */
+  background-size: cover;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 /* Menü listesi */
 .navbar-menu {
