@@ -4,11 +4,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #1a1a1a; /* Koyu arka plan */
+  background-color: #1a1a1a;
   color: white;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .navbar.hidden {
@@ -28,24 +28,55 @@
 .navbar-logo button {
   background: none;
   border: none;
-  color: #ff4757; /* Canlı kırmızı renk */
+  color: #ff4757; /* Başlangıç rengi */
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.3s ease;
-  font-family: "Press Start 2P", cursive; /* Retro font */
-  text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757; /* Neon efekti */
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-family: "Press Start 2P", cursive;
+  text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757;
+  animation: colorChange 5s infinite ease-in-out; /* Renk değiştirme animasyonu */
 }
 
 .navbar-logo button:hover {
+  transform: scale(1.1);
+  animation: none; /* Fare üzerine gelindiğinde animasyonu durdur */
   color: #ff6b81; /* Hover rengi */
+}
+
+/* Renk değiştirme animasyonu */
+@keyframes colorChange {
+  0% {
+    color: #ff4757; /* Kırmızı */
+    text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757;
+  }
+  20% {
+    color: #7bff47; /* Açık Yeşil */
+    text-shadow: 0 0 10px #7bff47, 0 0 20px #7bff47;
+  }
+  40% {
+    color: #00bfff; /* Gökyüzü Mavisi */
+    text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+  }
+  60% {
+    color: #9400d3; /* Mor */
+    text-shadow: 0 0 10px #9400d3, 0 0 20px #9400d3;
+  }
+  80% {
+    color: #ff8c00; /* Turuncu */
+    text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+  }
+  100% {
+    color: #ff4757; /* Kırmızı */
+    text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757;
+  }
 }
 
 /* Menü listesi */
 .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 20px; /* Öğeler arası boşluk */
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
@@ -54,19 +85,20 @@
 .navbar-item button {
   background: none;
   border: none;
-  color: #ffffff; /* Beyaz yazı rengi */
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Orbitron", sans-serif; /* Gaming font */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  font-family: "Orbitron", sans-serif;
 }
 
 .navbar-item button:hover {
-  background-color: #ff4757; /* Hover rengi */
+  background-color: #ff4757;
   color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 71, 87, 0.7), 0 0 20px rgba(255, 71, 87, 0.5); /* Neon efekti */
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.7), 0 0 20px rgba(255, 71, 87, 0.5);
+  transform: translateY(-3px);
 }
 
 /* Saat stili */
@@ -76,86 +108,121 @@
   font-size: 18px;
   gap: 10px;
   font-weight: bold;
-  color: #00ffcc; /* Neon yeşil renk */
-  background: linear-gradient(
-    45deg,
-    #1a1a1a,
-    #333333,
-    #1a1a1a
-  ); /* Gradient arka plan */
-  padding: 12px 24px; /* Daha geniş padding */
-  border-radius: 30px; /* Yuvarlak köşeler */
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.7), 0 0 30px rgba(0, 255, 204, 0.5); /* Neon gölge efekti */
-  border: 2px solid #00ffcc; /* Neon yeşil çerçeve */
+  color: #00ffcc;
+  background: linear-gradient(45deg, #1a1a1a, #333333, #1a1a1a);
+  padding: 12px 24px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.7), 0 0 30px rgba(0, 255, 204, 0.5);
+  border: 2px solid #00ffcc;
   cursor: pointer;
-  animation: glow 2s infinite alternate, float 3s infinite ease-in-out; /* Animasyonlar */
+  animation: glow 2s infinite alternate, float 3s infinite ease-in-out;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: "Orbitron", sans-serif; /* Gaming font */
+  font-family: "Orbitron", sans-serif;
 }
 
 .clock-icon {
   font-size: 24px;
-  color: #00ffcc; /* Neon yeşil renk */
+  color: #00ffcc;
   transition: color 0.3s ease;
 }
 
 .navbar-clock:hover .clock-icon {
-  color: #ff4757; /* Hover rengi */
+  color: #ff4757;
 }
 
 /* Saat metni */
 .clock-text {
   position: absolute;
-  top: 100%; /* İkonun altında göster */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #1a1a1a;
-  color: #00ffcc; /* Neon yeşil renk */
+  color: #00ffcc;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
-  font-family: "Orbitron", sans-serif; /* Gaming font */
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.7); /* Neon gölge efekti */
-  white-space: nowrap; /* Metni tek satırda tut */
-  opacity: 0; /* Başlangıçta gizli */
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  white-space: nowrap;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .navbar-clock:hover .clock-text {
-  opacity: 1; /* Hover durumunda göster */
+  opacity: 1;
 }
-/* Mobil menü ikonu (mobilde gösterilir) */
+
+/* Mobil menü ikonu */
 .mobile-menu-icon {
-  display: none; /* Varsayılan olarak gizli */
+  display: none;
   font-size: 24px;
   cursor: pointer;
   color: #ffffff;
+  transition: transform 0.3s ease;
 }
 
-/* Mobil menü (mobilde gösterilir) */
+.mobile-menu-icon:hover {
+  transform: rotate(90deg);
+}
+
+/* Mobil menü */
 .navbar-menu.active {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 60px; /* Navbar yüksekliği */
+  top: 60px;
   right: 20px;
   background-color: #1a1a1a;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
+  animation: slideDown 0.5s ease-in-out;
 }
 
-/* Responsive tasarım için medya sorguları */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tasarım */
 @media (max-width: 768px) {
   .navbar-menu {
-    display: none; /* Mobilde menüyü gizle */
+    display: none;
   }
 
   .mobile-menu-icon {
-    display: block; /* Mobilde sandviç menü ikonunu göster */
+    display: block;
   }
 
   .navbar-clock {
-    display: none; /* Mobilde saati gizle */
+    display: none;
+  }
+}
+
+/* Animasyonlar */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.9), 0 0 40px rgba(0, 255, 204, 0.7);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

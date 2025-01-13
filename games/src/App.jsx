@@ -13,7 +13,7 @@ function App() {
   const location = useLocation();
 
 
-  const hideNavbarFooterPaths = ["/login", "/register"  ];
+  const hideNavbarFooterPaths = ["/login", "/register" , "/contact"  ];
 
  
   const showLayout = !hideNavbarFooterPaths.includes(location.pathname);
@@ -28,6 +28,7 @@ function App() {
             <Route path="/pacman" element={<Pacman />} />
             <Route path="/tetris" element={<Tetris />} />
             <Route path="/oldgame" element={<Oldgame />} />
+            
            
           </Routes>
         </MainLayout>
@@ -35,6 +36,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path='/contact' element={<Contact />} />
           
         </Routes>
       )}

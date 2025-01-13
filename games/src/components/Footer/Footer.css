@@ -1,14 +1,19 @@
 /* Footer ana container */
 .footer {
-  position: fixed; /* Sayfanın en altında sabitler */
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #1a1a1a; /* Koyu arka plan rengi */
+  background-color: #1a1a1a;
   color: white;
   padding: 10px 20px;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Üstte hafif gölge efekti */
-  z-index: 1000; /* Diğer içeriklerin üzerinde kalmasını sağlar */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.5s ease;
+}
+
+.footer:hover {
+  background-color: #2a2a2a;
 }
 
 /* Footer container */
@@ -25,12 +30,50 @@
   font-size: 14px;
   color: #ffffff;
   margin: 0;
+  animation: colorShift 20s infinite ease-in-out;
 }
+
+@keyframes colorShift {
+  0% {
+    color: #0d00ff; /* Mavi */
+  }
+  10% {
+    color: #7bff47; /* Açık Yeşil */
+  }
+  20% {
+    color: #ff0000; /* Kırmızı */
+  }
+  30% {
+    color: #ff8c00; /* Turuncu */
+  }
+  40% {
+    color: #ffd700; /* Altın Sarısı */
+  }
+  50% {
+    color: #9400d3; /* Mor */
+  }
+  60% {
+    color: #00ff7f; /* Bahar Yeşili */
+  }
+  70% {
+    color: #00bfff; /* Gökyüzü Mavisi */
+  }
+  80% {
+    color: #ff1493; /* Pembe */
+  }
+  90% {
+    color: #ff4500; /* Turuncu-Kırmızı */
+  }
+  100% {
+    color: #0d00ff; /* Mavi */
+  }
+}
+
 
 /* Sosyal medya ikonları container */
 .footer-social {
   display: flex;
-  gap: 20px; /* İkonlar arası boşluk */
+  gap: 20px;
 }
 
 /* Sosyal medya ikonları */
@@ -41,22 +84,22 @@
 }
 
 .footer-social a:hover {
-  transform: translateY(-5px); /* Fare üzerine gelindiğinde yukarı hareket */
+  transform: translateY(-5px) scale(1.2);
 }
 
 /* Twitter ikonu */
 .twitter-link:hover {
-  color: #1da1f2; /* Twitter mavisi */
+  color: #1da1f2;
 }
 
 /* Facebook ikonu */
 .facebook-link:hover {
-  color: #1877f2; /* Facebook mavisi */
+  color: #1877f2;
 }
 
 /* Instagram ikonu */
 .instagram-link:hover {
-  color: #e4405f; /* Instagram pembe-kırmızısı */
+  color: #e4405f;
 }
 
 /* Animasyonlar */
@@ -69,9 +112,16 @@
   }
 }
 
-/* Footer metni için parlaklık efekti */
-.footer-text {
-  animation: glow 2s infinite alternate;
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Responsive tasarım için medya sorguları */
@@ -89,5 +139,5 @@
 
 /* Sayfa içeriğinin footer'ın üzerine binmemesi için padding ekleyin */
 body {
-  padding-bottom: 80px; /* Footer yüksekliğine göre ayarlayın */
+  padding-bottom: 80px;
 }

@@ -140,7 +140,7 @@
     color: white;
     background-color: #ff4757; /* Kırmızı arka plan */
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
@@ -148,4 +148,19 @@
   .submit-button:hover {
     background-color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
     transform: scale(1.05); /* Hafif büyütme efekti */
+  }
+  .home-button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #ff4757; /* Kırmızı arka plan */
+    border: none;
+    
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .home-button:hover{    background-color: #ff6b81; /* Fare üzerine gelindiğinde renk değişimi */
+    transform: scale(1.05); /* Hafif büyütme efekti */
+
   }

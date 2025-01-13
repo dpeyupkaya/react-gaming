@@ -1,8 +1,14 @@
 import React from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import "./Contact.css";
+import Home from "../../Home";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 export const Contact = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="contact-container">
       {/* İletişim formu ve bilgiler */}
@@ -39,7 +45,9 @@ export const Contact = () => {
           <button type="submit" className="submit-button">
             Send Message
           </button>
+          
         </form>
+        <button className="home-button" onClick={()=> navigate ("/")}>Go Home</button>
       </div>
     </div>
   );

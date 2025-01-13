@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Göz ikonları için
 import "./Register.css";
@@ -29,19 +30,22 @@ const Register = () => {
     <div className="register-container">
       {/* Yıldızlar için arka plan */}
       <div className="stars"></div>
+
+      {/* Lottie Animasyonu */}
       <Player
-  autoplay
-  loop
-  src="https://assets10.lottiefiles.com/packages/lf20_myejiggj.json" // Telifsiz "Loading" animasyonu
-  style={{
-    position: "absolute",
-    top: 10,
-    left: 40,
-    width: "60%",
-    height: "80%",
-    zIndex: 0,
-  }}
-/>
+        autoplay
+        loop
+        src="/animation/Animation - 1736730961939.json"
+        style={{
+          position: "absolute",
+          top: 10,
+         left: 40,
+          width: "60%",
+          height: "80%",
+          zIndex: 0,
+        }}
+      />
+
       {/* Register kutusu */}
       <div className="register-box">
         <h1>Register</h1>
@@ -76,6 +80,7 @@ const Register = () => {
               type="button"
               className="password-toggle"
               onClick={togglePasswordVisibility}
+              aria-label={showPassword ? "Hide password" : "Show password"} // Erişilebilirlik için
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />} {/* İkon değişimi */}
             </button>
@@ -85,11 +90,11 @@ const Register = () => {
           </button>
         </form>
 
-        <p className="login-text">
-          <Link to ="/login" className="secondary-link">
-            ← Go to Login
-            
-            </Link></p>
+        <p className="login-text"> 
+        <Link to="/login" className="secondary-link">
+  Go to Login ←
+</Link>
+</p>
       </div>
     </div>
   );

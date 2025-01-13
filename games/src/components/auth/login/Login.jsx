@@ -36,7 +36,8 @@ const Login = () => {
          <Player
         autoplay
         loop
-        src="https://assets10.lottiefiles.com/packages/lf20_myejiggj.json" // Telifsiz "Loading" animasyonu
+      src="/animation/Animation - 1736730610711.json"
+      
         style={{
           position: "absolute",
           top: 10,

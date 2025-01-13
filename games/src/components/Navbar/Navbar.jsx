@@ -85,8 +85,12 @@ const Navbar = () => {
             <button onClick={() => navigate("/oldgame")}>Old Game</button>
           </li>
           <li className="navbar-item">
+            <button onClick={()=> navigate("/contact")}>Contact</button>
+          </li>
+          <li className="navbar-item">
             <button onClick={() => navigate("/login")}>Sign In</button>
           </li>
+          
         </ul>
 
         <div className="navbar-clock" onClick={openModal}  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>

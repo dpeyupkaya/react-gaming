@@ -57,12 +57,11 @@
 .input-group {
   margin-bottom: 20px;
   position: relative;
- 
 }
 
 .input-group input {
   width: 100%;
-  padding: 10px;
+  padding: 10px 40px 10px 10px; /* Sağ tarafta buton için boşluk bırak */
   border: 2px solid #00ffcc; /* Neon yeşil çerçeve */
   border-radius: 5px;
   background-color: #1a1a1a;
@@ -80,16 +79,24 @@
 /* Şifre göster/gizle butonu */
 .password-toggle {
   position: absolute;
-  left: 195px !important;
-  top: 45%;
-  margin: auto;
+  right: 10px; /* Inputun sağ tarafına yerleştir */
+  top: 50%;
   
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* Dikeyde ortala */
   background: none;
   border: none;
-  color: #ffffff; /* Neon yeşil renk */
+  color: #00ffcc; /* Neon yeşil renk */
+  font-size: 20px; /* İkon boyutu */
   cursor: pointer;
-  font-size: 20px;
+  padding: 8px; /* İkon etrafında boşluk */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:focus {
+  outline: none; /* Odaklandığında çerçeve kaldır */
 }
 
 /* Butonlar */
@@ -118,6 +125,14 @@
   background-color: #00ffcc; /* Neon yeşil arka plan */
   color: #1a1a1a;
 }
+.login-text{color: #2fff00; /* Neon yeşil renk */
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-family: "Orbitron", sans-serif; /* Gaming font */
+  gap: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;}
 
 /* Animasyonlar */
 @keyframes fadeIn {
