@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
- 
   background-color: #000000; /* Siyah arka plan */
   overflow: hidden;
   position: relative;
@@ -35,7 +34,7 @@
 .register-box {
   background: linear-gradient(135deg, #1a1a1a6b, #333333); /* Gradient arka plan */
   padding: 40px;
- margin-left: 600px;
+  margin-left: 600px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 2px solid #ff4757; /* Kırmızı çerçeve */
@@ -80,8 +79,7 @@
 .password-toggle {
   position: absolute;
   right: 10px; /* Inputun sağ tarafına yerleştir */
-  top: 50%;
-  
+  bottom: -10px;
   transform: translateY(-50%); /* Dikeyde ortala */
   background: none;
   border: none;
@@ -117,22 +115,26 @@
   color: #ffffff;
 }
 
-.register-button:hover{
+.register-button:hover {
   background-color: #f2ff00; /* Neon yeşil arka plan */
   color: #1a1a1a;
 }
+
 .secondary-button {
   background-color: #00ffcc; /* Neon yeşil arka plan */
   color: #1a1a1a;
 }
-.login-text{color: #2fff00; /* Neon yeşil renk */
+
+.login-text {
+  color: #2fff00; /* Neon yeşil renk */
   text-decoration: none; /* Alt çizgiyi kaldır */
   font-family: "Orbitron", sans-serif; /* Gaming font */
   gap: 10px;
   font-size: 16px;
   margin: 10px 0;
   cursor: pointer;
-  transition: color 0.3s ease;}
+  transition: color 0.3s ease;
+}
 
 /* Animasyonlar */
 @keyframes fadeIn {
@@ -146,9 +148,22 @@
   }
 }
 
-/* Responsive tasarım */
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .register-box {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .register-box {
+    margin-left: 200px;
+  }
+}
+
 @media (max-width: 768px) {
   .register-box {
+    margin-left: 100px;
     padding: 20px;
     width: 90%;
   }
@@ -163,6 +178,61 @@
 
   .register-button,
   .secondary-button {
+    font-size: 14px;
+  }
+
+  .password-toggle {
+    right: 5px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-box {
+    margin-left: 50px;
+    padding: 15px;
+  }
+
+  .register-box h1 {
+    font-size: 20px;
+  }
+
+  .input-group input {
+    font-size: 12px;
+  }
+
+  .register-button,
+  .secondary-button {
+    font-size: 12px;
+  }
+
+  .password-toggle {
+    right: 5px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .register-box {
+    margin-left: 20px;
+    padding: 10px;
+  }
+
+  .register-box h1 {
+    font-size: 18px;
+  }
+
+  .input-group input {
+    font-size: 10px;
+  }
+
+  .register-button,
+  .secondary-button {
+    font-size: 10px;
+  }
+
+  .password-toggle {
+    right: 5px;
     font-size: 14px;
   }
 }
