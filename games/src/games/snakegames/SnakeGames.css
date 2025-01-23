@@ -1,38 +1,113 @@
-/* SnakeGame.css */
-.game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;  /* Sayfa boyutunun tamamını kaplasın */
-    background-color: #2d2d2d;  /* Arka plan rengini koyu yapalım */
-    padding-top: 60px;  /* Navbar'ın yüksekliğini hesaba katıyoruz */
-  }
-  
-  .game-board {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: black;
-    border: 4px solid white;
-  }
-  
-  .snake-segment {
-    position: absolute;
-    background-color: green;
-  }
-  
-  .food {
-    position: absolute;
-    background-color: red;
-  }
-  
-  .game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
+/* Ana container */
+.snake-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Oyun alanı */
+.game-board {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #222, #444);
+  border: 4px solid #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Yılan segmentleri */
+.snake-segment {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+/* Yemek */
+.food {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff4444;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Oyun bitti ekranı */
+.game-over-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.game-over-text {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+}
+
+.score-text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #00ff88;
+}
+
+.restart-button {
+  background-color: #00ff88;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #00cc66;
+}
+
+/* Skor Tablosu */
+.score-board {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+/* Kontroller */
+.controls {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #ccc;
+}

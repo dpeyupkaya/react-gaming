@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from "react";
+import "./SnakeGames.css";
 
-const SnakeGame = () => {
-  const [snake, setSnake] = useState([
-    { x: 0, y: 0 },
-    { x: 10, y: 0 },
-    { x: 20, y: 0 },
-  ]);
-  const [direction, setDirection] = useState("RIGHT");
-  const [food, setFood] = useState({ x: 50, y: 50 });
-  const [gameOver, setGameOver] = useState(false);
-
-  const gridSize = 100;
+const SnakeGames= () => {
+  const gridSize = 400;
   const cellSize = 20;
+  const initialSnake = [
+    { x: 60, y: 0 },
+    { x: 40, y: 0 },
+    { x: 20, y: 0 },
+  ];
 
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowUp" && direction !== "DOWN") setDirection("UP");
-    if (e.key === "ArrowDown" && direction !== "UP") setDirection("DOWN");
-    if (e.key === "ArrowLeft" && direction !== "RIGHT") setDirection("LEFT");
-    if (e.key === "ArrowRight" && direction !== "LEFT") setDirection("RIGHT");
+  const [snake, setSnake] = useState(initialSnake);
+  const [direction, setDirection] = useState("RIGHT");
+  const [food, setFood] = useState({ x: 200, y: 200 });
+  const [gameOver, setGameOver] = useState(false);
+  const [score, setScore] = useState(0);
+
+  // Yemek oluştur
+  const generateFood = () => {
+    const x = Math.floor(Math.random() * (gridSize / cellSize)) * cellSize;
+    const y = Math.floor(Math.random() * (gridSize / cellSize)) * cellSize;
+    setFood({ x, y });
   };
 
+  // Yılanın hareketi
   const moveSnake = () => {
     if (gameOver) return;
 
@@ -43,34 +47,40 @@ const SnakeGame = () => {
         break;
     }
 
-    newSnake.unshift(head);
-    if (head.x === food.x && head.y === food.y) {
-      setFood({
-        x: Math.floor(Math.random() * gridSize / cellSize) * cellSize,
-        y: Math.floor(Math.random() * gridSize / cellSize) * cellSize,
-      });
-    } else {
-      newSnake.pop();
+    // Yılanın sınırları aşmasını kontrol et
+    if (head.x < 0 || head.x >= gridSize || head.y < 0 || head.y >= gridSize) {
+      setGameOver(true);
+      return;
     }
 
-    if (isCollision(newSnake)) {
+    // Yılanın kendine çarpmasını kontrol et
+    if (newSnake.some((segment) => segment.x === head.x && segment.y === head.y)) {
       setGameOver(true);
+      return;
+    }
+
+    newSnake.unshift(head);
+
+    // Yemek yendi mi?
+    if (head.x === food.x && head.y === food.y) {
+      generateFood();
+      setScore(score + 1);
+    } else {
+      newSnake.pop();
     }
 
     setSnake(newSnake);
   };
 
-  const isCollision = (snake) => {
-    const head = snake[0];
-    return (
-      head.x < 0 ||
-      head.x >= gridSize ||
-      head.y < 0 ||
-      head.y >= gridSize ||
-      snake.slice(1).some((segment) => segment.x === head.x && segment.y === head.y)
-    );
+  // Klavye kontrolleri
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowUp" && direction !== "DOWN") setDirection("UP");
+    if (e.key === "ArrowDown" && direction !== "UP") setDirection("DOWN");
+    if (e.key === "ArrowLeft" && direction !== "RIGHT") setDirection("LEFT");
+    if (e.key === "ArrowRight" && direction !== "LEFT") setDirection("RIGHT");
   };
 
+  // Oyunu başlat ve kontrolleri ekle
   useEffect(() => {
     if (gameOver) return;
 
@@ -83,44 +93,62 @@ const SnakeGame = () => {
     };
   }, [snake, direction, gameOver]);
 
+  // Oyunu sıfırla
+  const resetGame = () => {
+    setSnake(initialSnake);
+    setDirection("RIGHT");
+    setFood({ x: 200, y: 200 });
+    setGameOver(false);
+    setScore(0);
+  };
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-800">
-      <div className="relative">
-        <div
-          className="absolute w-[400px] h-[400px] bg-black border-4 border-white"
-          style={{ position: "relative", width: gridSize, height: gridSize }}
-        >
-          {snake.map((segment, index) => (
-            <div
-              key={index}
-              className="absolute bg-green-500"
-              style={{
-                width: cellSize,
-                height: cellSize,
-                left: segment.x,
-                top: segment.y,
-              }}
-            />
-          ))}
+    <div className="snake-game-container">
+      <div className="game-board">
+        {/* Yılan */}
+        {snake.map((segment, index) => (
           <div
-            className="absolute bg-red-500"
+            key={index}
+            className="snake-segment"
             style={{
-              width: cellSize,
-              height: cellSize,
-              left: food.x,
-              top: food.y,
+              left: segment.x,
+              top: segment.y,
             }}
           />
-        </div>
+        ))}
+
+        {/* Yemek */}
+        <div
+          className="food"
+          style={{
+            left: food.x,
+            top: food.y,
+          }}
+        />
+
+        {/* Oyun Bitti Ekranı */}
         {gameOver && (
-          <div className="absolute text-white text-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            Game Over
+          <div className="game-over-screen">
+            <div className="game-over-text">Game Over!</div>
+            <div className="score-text">Score: {score}</div>
+            <button className="restart-button" onClick={resetGame}>
+              Restart
+            </button>
           </div>
         )}
+      </div>
+
+      {/* Skor Tablosu */}
+      <div className="score-board">
+        Score: {score}
+      </div>
+
+      {/* Kontroller */}
+      <div className="controls">
+        Use Arrow Keys to Move
       </div>
     </div>
   );
 };
 
-export default SnakeGame;
-
+export default SnakeGames;
