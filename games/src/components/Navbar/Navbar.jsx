@@ -79,7 +79,7 @@ const Navbar = () => {
             <button onClick={() => navigate("/tetris")}>Tetris</button>
           </li>
           <li className="navbar-item">
-            <button onClick={() => navigate("/pacman")}>Pac-Man</button>
+            <button onClick={() => navigate("/minesweeper")}>Minesweeper</button>
           </li>
           <li className="navbar-item">
             <button onClick={() => navigate("/oldgame")}>Old Game</button>
@@ -87,9 +87,9 @@ const Navbar = () => {
           <li className="navbar-item">
             <button onClick={()=> navigate("/contact")}>Contact</button>
           </li>
-          <li className="navbar-item">
+          {/* <li className="navbar-item">
             <button onClick={() => navigate("/login")}>Sign In</button>
-          </li>
+          </li> */}
           
         </ul>
 

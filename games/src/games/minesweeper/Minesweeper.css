@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 182, 193); /* Pastel pembe */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  animation: softColorChange 10s infinite alternate;
+}
+
+@keyframes softColorChange {
+  0% {
+    background-color: rgb(255, 182, 193); /* Pastel pembe */
+  }
+  25% {
+    background-color: rgb(173, 216, 230); /* Pastel mavi */
+  }
+  50% {
+    background-color: rgb(144, 238, 144); /* Pastel yeşil */
+  }
+  75% {
+    background-color: rgb(255, 223, 186); /* Pastel turuncu */
+  }
+  100% {
+    background-color: rgb(255, 182, 193); /* Tekrar pastel pembe */
+  }
+}
+
+
+.minesweeper {
+
+  text-align: center;
+  margin-top: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+
+  display: inline-block;
+  border: 2px solid #333;
+  background-color: #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #bbb;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.cell.revealed {
+  background-color: #ddd;
+  cursor: default;
+}
+
+.cell.flagged {
+  background-color: #ffcccb;
+}
+
+.cell:hover:not(.revealed):not(.flagged) {
+  background-color: #aaa;
+}
+
+.game-over, .game-won {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.game-over {
+  color: red;
+}
+
+.game-won {
+  color: green;
+}
+
+.cafer {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.cafer:hover {
+  background-color: #45a049;
+}

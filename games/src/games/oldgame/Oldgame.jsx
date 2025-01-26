@@ -1,56 +1,55 @@
-import React, { useState } from 'react';
-import './Oldgame.css';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
+import React, { useState, useEffect } from 'react';
+import './Oldgame.css'; // CSS dosyasını import ediyoruz
 
-const Oldgame = () => {
-  const [targetNumber, setTargetNumber] = useState(Math.floor(Math.random() * 100) + 1);
-  const [guess, setGuess] = useState('');
-  const [message, setMessage] = useState('1 ile 100 arasında bir sayı tahmin edin!');
-  const [attempts, setAttempts] = useState(0);
+export const Oldgame = () => {
+  const [score, setScore] = useState(0);
+  const [balloons, setBalloons] = useState([]);
 
-  const handleGuess = () => {
-    const userGuess = parseInt(guess, 10);
-
-    if (isNaN(userGuess)) {
-      setMessage('Lütfen geçerli bir sayı girin!');
-      return;
-    }
-
-    setAttempts(attempts + 1);
-
-    if (userGuess < targetNumber) {
-      setMessage('Daha büyük bir sayı tahmin edin!');
-    } else if (userGuess > targetNumber) {
-      setMessage('Daha küçük bir sayı tahmin edin!');
-    } else {
-      setMessage(`Tebrikler! ${attempts + 1} denemede doğru tahmin ettiniz!`);
-    }
+  // Balon oluşturma fonksiyonu
+  const createBalloon = () => {
+    const newBalloon = {
+      id: Date.now(),
+      top: Math.random() * 80 + '%', // Rastgele yükseklik
+      left: Math.random() * 80 + '%', // Rastgele genişlik
+      size: Math.random() * 50 + 30 + 'px', // Rastgele boyut
+    };
+    setBalloons((prev) => [...prev, newBalloon]);
   };
 
-  const resetGame = () => {
-    setTargetNumber(Math.floor(Math.random() * 100) + 1);
-    setGuess('');
-    setMessage('1 ile 100 arasında bir sayı tahmin edin!');
-    setAttempts(0);
+  // Balon patlatma fonksiyonu
+  const popBalloon = (id) => {
+    setBalloons((prev) => prev.filter((balloon) => balloon.id !== id));
+    setScore((prev) => prev + 1);
   };
+
+  // Her 1 saniyede bir yeni balon oluştur
+  useEffect(() => {
+    const interval = setInterval(() => {
+      createBalloon();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-<> <Navbar />
-<div className="oldgame">
-      <h1>Sayı Tahmin Oyunu</h1>
-      <p>{message}</p>
-      <input
-        type="number"
-        value={guess}
-        onChange={(e) => setGuess(e.target.value)}
-        placeholder="Tahmininizi girin"
-      />
-      <button onClick={handleGuess}>Tahmin Et</button>
-      <button onClick={resetGame}>Yeni Oyun</button>
+    <div className="game-container">
+      <h1>Balon Patlatma Oyunu</h1>
+      <p className="score">Puan: {score}</p>
+      <div className="balloon-area">
+        {balloons.map((balloon) => (
+          <div
+            key={balloon.id}
+            className="balloon"
+            style={{
+              top: balloon.top,
+              left: balloon.left,
+              width: balloon.size,
+              height: balloon.size,
+            }}
+            onClick={() => popBalloon(balloon.id)}
+          ></div>
+        ))}
+      </div>
     </div>
-<Footer />
-</>
   );
 };
 

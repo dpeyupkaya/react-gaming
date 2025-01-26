@@ -9,7 +9,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const goToLogin = () => {
-    navigate("/login");
+    navigate("/snake-game");
   };
 
   return (
