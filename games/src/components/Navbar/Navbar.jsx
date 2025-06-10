@@ -9,14 +9,14 @@ const Navbar = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Navbar'ın görünürlüğü
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true); 
   const [isHovered, setIsHovered] = useState(false);  
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
-      const hours = now.getHours().toString().padStart(2, "0"); // Saat (2 haneli)
-      const minutes = now.getMinutes().toString().padStart(2, "0"); // Dakika (2 haneli)
+      const hours = now.getHours().toString().padStart(2, "0"); 
+      const minutes = now.getMinutes().toString().padStart(2, "0");
       setTime(`${hours}:${minutes}`); // Saat ve dakikayı birleştir
     }, 1000); // Her saniye güncelle
   

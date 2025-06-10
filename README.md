@@ -15,3 +15,5 @@ This repository contains **4 classic and fun web games** built with React. Each 
 
 4. **Minesweeper**  
    Find all the mines without clicking on them. Use numbers to guide your way.
+![alt text](image.png)
+![alt text](image-1.png)
